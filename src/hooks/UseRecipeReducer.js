@@ -1,3 +1,6 @@
+import React from "react";
+import { kebabCase } from "lodash";
+
 const initialState = {
   form: {
     directions: "",
@@ -27,7 +30,6 @@ const recipeReducer = (state, action) => {
       newState = { ...state, recipes: action?.recipes };
       return newState;
     case "REMOVE_RECIPE":
-      state.recipes(recipes.filter((recipes) => id !== e.target.id));
       return state;
     case "ADD_RECIPE":
       newState = { ...state };
@@ -41,3 +43,10 @@ const recipeReducer = (state, action) => {
     default:
       return state;
   }
+};
+
+const useRecipeReducer = () => {
+  const [recipes, dispatch] = React.useReducer(recipeReducer, initialState);
+  return [recipes, dispatch];
+};
+export default useRecipeReducer;

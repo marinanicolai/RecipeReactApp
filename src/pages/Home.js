@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
+import UseRecipeReducer from "../hooks/UseRecipeReducer";
 
-class Home extends Component {
-  render() {
-    return (
-      <div>
-        <Header></Header>
-        <h1>Home</h1>
-        <Footer></Footer>
-      </div>
-    );
-  }
-}
+const HomePage = () => {
+  return (
+    <div className="home">
+      <Header></Header>
+      <Sidebar />
+      <UseRecipeReducer />
+      <Footer></Footer>
+    </div>
+  );
+};
 
-export default Home;
+export default HomePage;

@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Chat from "./pages/Chat";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import RecipeList from "./pages/RecipeList";
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <Chat />
           <Signup />
           <Login />
+          <RecipeList />
         </ul>
       </div>
     );

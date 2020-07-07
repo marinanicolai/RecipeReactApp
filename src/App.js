@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import RecipeList from "./pages/RecipeList";
+import { auth } from "./services/firebase";
 
 import "antd/dist/antd.css";
 import "./styles.css";

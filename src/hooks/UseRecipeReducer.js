@@ -1,6 +1,8 @@
 import React from "react";
 import { kebabCase } from "lodash";
 
+import { db } from "../services/firebase";
+
 const initialState = {
   form: {
     directions: "",

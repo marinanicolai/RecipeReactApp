@@ -12,7 +12,6 @@ import RecipeList from "./pages/RecipeList";
 import { auth } from "./services/firebase";
 
 import "antd/dist/antd.css";
-import "./styles.css";
 
 function PrivateRoute({ component: Component, authenticated, ...rest }) {
   return (

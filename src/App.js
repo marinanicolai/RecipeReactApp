@@ -10,7 +10,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import RecipeList from "./pages/RecipeList";
 import { auth } from "./services/firebase";
-
+import "./styles.css";
 import "antd/dist/antd.css";
 
 function PrivateRoute({ component: Component, authenticated, ...rest }) {

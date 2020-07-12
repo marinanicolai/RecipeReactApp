@@ -3,7 +3,7 @@ import { Layout, Menu } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 
 const { Header, Content, Sider } = Layout;
-const SideBar = (props) => {
+const Sidebar = (props) => {
   return (
     <Layout className="cover">
       <Sider id="sider-menu" breakpoint="lg" collapsedWidth="0">
@@ -23,4 +23,4 @@ const SideBar = (props) => {
   );
 };
 
-export default SideBar;
+export default Sidebar;

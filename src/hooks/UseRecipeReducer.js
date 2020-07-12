@@ -42,13 +42,25 @@ const recipeReducer = (state, action) => {
       ];
 
       return newState;
+    case "EDIT_RECIPE":
+      // state?.recipes(recipes.filter((recipes) => id !== e.target.id));
+      console.log("actionaction", action);
+      return state;
+
+    case "REMOVE_RECIPE":
+      // state?.recipes(recipes.filter((recipes) => id !== e.target.id));
+      return state;
+
     default:
       return state;
   }
 };
+//gitpush
 
 const useRecipeReducer = () => {
   const [recipes, dispatch] = React.useReducer(recipeReducer, initialState);
+
   return [recipes, dispatch];
 };
+
 export default useRecipeReducer;

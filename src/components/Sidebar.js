@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 
 const { Header, Content, Sider } = Layout;
-const Sidebar = (props) => {
+
+const SideBar = (props) => {
   return (
     <Layout className="cover">
       <Sider id="sider-menu" breakpoint="lg" collapsedWidth="0">
@@ -12,6 +14,15 @@ const Sidebar = (props) => {
           <Menu.Item key="home">
             <UserOutlined />
             <span className="nav-ingredients">Home</span>
+          </Menu.Item>
+          <Menu.Item key="recipe-list">
+            <Link to="/recipe-list">Recipes</Link>
+          </Menu.Item>
+          <Menu.Item key="login">
+            <Link to="/login">Sign In</Link>
+          </Menu.Item>
+          <Menu.Item key="signup">
+            <Link to="/signup">Sign Up</Link>
           </Menu.Item>
         </Menu>
       </Sider>
@@ -23,4 +34,4 @@ const Sidebar = (props) => {
   );
 };
 
-export default Sidebar;
+export default SideBar;

@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { signin, signInWithGoogle, signInWithGitHub } from "../helpers/auth";
 
@@ -23,15 +21,25 @@ export default class Login extends Component {
       [event.target.name]: event.target.value,
     });
   }
+
   async handleSubmit(event) {
     event.preventDefault();
     this.setState({ error: "" });
+    try {
+      await signin(this.state.email, this.state.password);
+    } catch (error) {
+      this.setState({ error: error.message });
+    }
+  }
+
+  async googleSignIn() {
     try {
       await signInWithGoogle();
     } catch (error) {
       this.setState({ error: error.message });
     }
   }
+
   async githubSignIn() {
     try {
       await signInWithGitHub();
@@ -39,6 +47,7 @@ export default class Login extends Component {
       this.setState({ error: error.message });
     }
   }
+
   render() {
     return (
       <div className="container">

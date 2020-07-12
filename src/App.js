@@ -82,7 +82,7 @@ class App extends Component {
             authenticated={this.state.authenticated}
             component={Signup}
           />
-          <Route path="/recipe-list" component={RecipeList} />
+
           <PublicRoute
             path="/login"
             authenticated={this.state.authenticated}

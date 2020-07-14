@@ -34,14 +34,11 @@ function RecipeList() {
   };
 
   const onCreate = (values) => {
-    console.log("finis", values);
     dispatch({
       type: "ADD_RECIPE",
       payload: values,
     });
   };
-
-  console.log({ recipes });
 
   return (
     <>

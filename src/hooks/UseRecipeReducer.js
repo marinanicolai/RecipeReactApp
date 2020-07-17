@@ -8,7 +8,6 @@ const initialState = {
     directions: "",
     ingredients: "",
     title: "",
-    published: false,
   },
   notification: {
     notificationOpen: false,
@@ -28,34 +27,45 @@ const initialState = {
 const recipeReducer = (state, action) => {
   let newState;
   switch (action.type) {
+    case "OPEN_MODAL":
+      const modalType = action?.modalType;
+
+      if (modalType === "add") {
+        return { ...state, addModalOpen: true };
+      }
+
+      return newState;
+
     case "SET_RECIPES":
       newState = { ...state, recipes: action?.recipes };
+      console.log({ newState, action }, action.recipes);
       return newState;
-    case "REMOVE_RECIPE":
-      return state;
+
     case "ADD_RECIPE":
-      newState = { ...state };
+      newState = { ...state, addModalOpen: false };
       const { title, ingredients, directions } = action.payload;
+
+      const id = kebabCase(title);
+
       newState.recipes = [
-        ...newState.recipes, // we are copying here recipes from the old state and adding a new one
-        { title, ingredients, directions },
+        ...newState.recipes,
+        { id, title, ingredients, directions },
       ];
 
       return newState;
+
     case "EDIT_RECIPE":
-      // state?.recipes(recipes.filter((recipes) => id !== e.target.id));
       console.log("actionaction", action);
       return state;
 
     case "REMOVE_RECIPE":
-      // state?.recipes(recipes.filter((recipes) => id !== e.target.id));
       return state;
 
     default:
       return state;
   }
 };
-//gitpush
+
 
 const useRecipeReducer = () => {
   const [recipes, dispatch] = React.useReducer(recipeReducer, initialState);

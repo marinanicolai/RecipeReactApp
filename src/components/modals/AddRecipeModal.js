@@ -66,22 +66,20 @@ const AddRecipeForm = ({
   );
 };
 
-const AddRecipeModal = ({ handleCloseModal, modalOpen }) => {
-  const onCreate = (values) => {};
-
+const AddRecipeModal = ({
+  handleOpenAddModal,
+  handleCloseModal,
+  handleSubmit,
+  modalOpen,
+}) => {
   return (
     <div>
-      <Button
-        type="primary"
-        onClick={() => {
-          //   setVisible(true);
-        }}
-      >
+      <Button type="primary" onClick={handleOpenAddModal}>
         New recipe
       </Button>
       <AddRecipeForm
         modalOpen={modalOpen}
-        onCreate={onCreate}
+        onCreate={handleSubmit}
         onCancel={handleCloseModal}
       />
     </div>

@@ -10,6 +10,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import RecipeList from "./pages/RecipeList";
 import { auth } from "./services/firebase";
+
 import "./styles.css";
 import "antd/dist/antd.css";
 
@@ -21,10 +22,10 @@ function PrivateRoute({ component: Component, authenticated, ...rest }) {
         authenticated === true ? (
           <Component {...props} />
         ) : (
-          <Redirect
-            to={{ pathname: "/login", state: { from: props.location } }}
-          />
-        )
+            <Redirect
+              to={{ pathname: "/login", state: { from: props.location } }}
+            />
+          )
       }
     />
   );
@@ -38,8 +39,8 @@ function PublicRoute({ component: Component, authenticated, ...rest }) {
         authenticated === false ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/recipe-list" />
-        )
+            <Redirect to="/recipe-list" />
+          )
       }
     />
   );
@@ -74,23 +75,23 @@ class App extends Component {
         <span className="sr-only">Loading...</span>
       </div>
     ) : (
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <PublicRoute
-            path="/signup"
-            authenticated={this.state.authenticated}
-            component={Signup}
-          />
-
-          <PublicRoute
-            path="/login"
-            authenticated={this.state.authenticated}
-            component={Login}
-          />
-        </Switch>
-      </Router>
-    );
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <PublicRoute
+              path="/signup"
+              authenticated={this.state.authenticated}
+              component={Signup}
+            />
+            <Route path="/recipe-list" component={RecipeList} />
+            <PublicRoute
+              path="/login"
+              authenticated={this.state.authenticated}
+              component={Login}
+            />
+          </Switch>
+        </Router>
+      );
   }
 }
 export default App;

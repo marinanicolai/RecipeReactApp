@@ -11,11 +11,24 @@ function RecipeList() {
   const [recipeState, dispatch] = useRecipeReducer();
   const { addModalOpen, form, isEditing, recipes } = recipeState;
 
-  const handleChange = (event) => {};
+  console.log();
 
-  const handleCloseModal = () => {};
+  const handleChange = (event) => { };
 
-  const handleSubmit = () => {};
+  const handleOpenAddModal = () =>
+    dispatch({
+      type: "OPEN_MODAL",
+      modalType: "add",
+    });
+
+  const handleCloseModal = () => { };
+
+  const handleSubmit = (values) => {
+    dispatch({
+      type: "ADD_RECIPE",
+      payload: values,
+    });
+  };
 
   const handleOnEdit = ({ id, directions, ingredients, title }) => {
     dispatch({
@@ -34,7 +47,6 @@ function RecipeList() {
   };
 
   const onCreate = (values) => {
-    console.log("finis", values);
     dispatch({
       type: "ADD_RECIPE",
       payload: values,
@@ -74,10 +86,11 @@ function RecipeList() {
             ))}
           </Row>
         ) : (
-          <Empty />
-        )}
+            <Empty />
+          )}
         <AddRecipeModal
           modalOpen={addModalOpen || isEditing}
+          handleOpenAddModal={handleOpenAddModal}
           handleCloseModal={handleCloseModal}
           handleSubmit={handleSubmit}
           handleChange={handleChange}

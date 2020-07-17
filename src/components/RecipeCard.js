@@ -1,8 +1,5 @@
-import React, { Component } from "react";
+import React, { Fragment } from "react";
 import { Popconfirm, Card } from "antd";
-import Header from "./Header";
-import Footer from "./Footer";
-import { Fragment } from "react";
 import { DeleteOutlined, EditOutlined, EyeOutlined } from "@ant-design/icons";
 
 const RecipeCard = ({

@@ -53,8 +53,6 @@ function RecipeList() {
     });
   };
 
-  console.log({ recipes });
-
   return (
     <>
       <Sidebar>

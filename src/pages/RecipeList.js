@@ -54,10 +54,9 @@ function RecipeList() {
     });
   };
 
-  const handelCloseModal = ({ id }) => {
+  const handelCloseModal = () => {
     dispatch({
       type: "CANCEL",
-      payload: { id },
     })
      
   }
@@ -87,6 +86,7 @@ function RecipeList() {
                   }
                   handleOnEdit={handleOnEdit}
                   handleOnDelete={handleOnDelete}
+                  handleCloseModal ={handelCloseModal}
                   {...recipe}
                 />
               </Col>

@@ -35,12 +35,7 @@ const AddRecipeForm = ({
           .catch((info) => {
             console.log("Validate Failed:", info);
           });
-      }}
-
-     onCancel={handleCloseModal}
-       //console.log("cancel clicked")
-
-     
+      }}     
     >
       <Form
         form={form}
@@ -86,7 +81,7 @@ const AddRecipeModal = ({
       <AddRecipeForm
         modalOpen={modalOpen}
         onCreate={handleSubmit}
-        onCancel={handleCloseModal}
+        handleCloseModal={handleCloseModal}
       />
     </div>
   );

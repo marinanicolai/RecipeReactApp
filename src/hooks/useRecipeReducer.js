@@ -66,7 +66,8 @@ const recipeReducer = (state, action) => {
       return newState;
 
     case "CANCEL":
-    return state;  
+    newState = { ...state, addModalOpen: false, viewModalOpen : false  }
+    return newState;  
 
     default:
       return state;

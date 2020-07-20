@@ -38,11 +38,7 @@ const AddRecipeForm = ({
       }}
 
      onCancel={() => {
-       console.log("cancel clicked")
-      form 
-      
-        
-        
+       console.log("cancel clicked")        
      }} 
     >
       <Form

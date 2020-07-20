@@ -59,7 +59,11 @@ const recipeReducer = (state, action) => {
       return state;
 
     case "REMOVE_RECIPE":
-      return state;
+    const recipes = state.recipes.filter(
+      (recipe) => action.payload.id !== recipe.id
+    );
+    newState = { ...state, recipes };
+      return newState;
 
     default:
       return state;

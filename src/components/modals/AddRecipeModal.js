@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal, Form, Input } from "antd";
+import { statement } from "@babel/template";
 
 const AddRecipeForm = ({
   modalOpen,
@@ -35,6 +36,14 @@ const AddRecipeForm = ({
             console.log("Validate Failed:", info);
           });
       }}
+
+     onCancel={() => {
+       console.log("cancel clicked")
+      form 
+      
+        
+        
+     }} 
     >
       <Form
         form={form}

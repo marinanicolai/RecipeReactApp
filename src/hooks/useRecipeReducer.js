@@ -65,6 +65,9 @@ const recipeReducer = (state, action) => {
     newState = { ...state, recipes };
       return newState;
 
+    case "CANCEL":
+    return state;  
+
     default:
       return state;
   }

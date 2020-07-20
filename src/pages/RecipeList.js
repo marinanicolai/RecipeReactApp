@@ -54,7 +54,7 @@ function RecipeList() {
     });
   };
 
-  const handelCancelModal = ({ id }) => {
+  const handelCloseModal = ({ id }) => {
     dispatch({
       type: "CANCEL",
       payload: { id },
@@ -101,7 +101,6 @@ function RecipeList() {
           handleCloseModal={handleCloseModal}
           handleSubmit={handleSubmit}
           handleChange={handleChange}
-          handleCancelModal={handelCancelModal}
           onCreate={onCreate}
           {...form}
         />

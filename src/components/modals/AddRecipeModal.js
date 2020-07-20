@@ -37,9 +37,10 @@ const AddRecipeForm = ({
           });
       }}
 
-     onCancel={() => {
-       console.log("cancel clicked")        
-     }} 
+     onCancel={handleCloseModal}
+       //console.log("cancel clicked")
+
+     
     >
       <Form
         form={form}

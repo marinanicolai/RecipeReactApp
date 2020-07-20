@@ -14,23 +14,6 @@ import { auth } from "./services/firebase";
 import "./styles.css";
 import "antd/dist/antd.css";
 
-function PrivateRoute({ component: Component, authenticated, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        authenticated === true ? (
-          <Component {...props} />
-        ) : (
-            <Redirect
-              to={{ pathname: "/login", state: { from: props.location } }}
-            />
-          )
-      }
-    />
-  );
-}
-
 function PublicRoute({ component: Component, authenticated, ...rest }) {
   return (
     <Route

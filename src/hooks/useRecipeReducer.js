@@ -55,8 +55,20 @@ const recipeReducer = (state, action) => {
       return newState;
 
     case "EDIT_RECIPE":
+    const recipe = state.recipes.filter(
+      (recipe) => action.payload.title !== recipe.title
+    )
       console.log("actionaction", action);
-      return state;
+      newState = { ...state, recipe };
+     
+      
+  
+     newState.recipes =[
+       ...newState.recipes,
+       { title, ingredients, directions },
+     ];
+
+      return newState;
 
     case "REMOVE_RECIPE":
     const recipes = state.recipes.filter(

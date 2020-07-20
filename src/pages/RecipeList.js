@@ -19,8 +19,6 @@ function RecipeList() {
       modalType: "add",
     });
 
-  const handleCloseModal = () => {};
-
   const handleSubmit = (values) => {
     dispatch({
       type: "ADD_RECIPE",
@@ -54,7 +52,7 @@ function RecipeList() {
     });
   };
 
-  const handelCloseModal = () => {
+  const handleCloseModal = () => {
     dispatch({
       type: "CANCEL",
     })
@@ -86,7 +84,7 @@ function RecipeList() {
                   }
                   handleOnEdit={handleOnEdit}
                   handleOnDelete={handleOnDelete}
-                  handleCloseModal ={handelCloseModal}
+                  handleCloseModal ={handleCloseModal}
                   {...recipe}
                 />
               </Col>
@@ -101,6 +99,7 @@ function RecipeList() {
           handleCloseModal={handleCloseModal}
           handleSubmit={handleSubmit}
           handleChange={handleChange}
+          handleOnEdit={handleOnEdit}
           onCreate={onCreate}
           {...form}
         />

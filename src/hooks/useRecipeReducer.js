@@ -7,13 +7,13 @@ const initialState = {
   form: {
     directions: "",
     ingredients: "",
-    title: "",
+    title: ""
   },
   notification: {
     notificationOpen: false,
     message: "",
     title: "",
-    type: "",
+    type: ""
   },
   viewModalOpen: false,
   addModalOpen: false,
@@ -21,7 +21,7 @@ const initialState = {
   recipeId: "",
   recipes: [],
   isEditing: false,
-  loading: false,
+  loading: false
 };
 
 const recipeReducer = (state, action) => {
@@ -49,43 +49,51 @@ const recipeReducer = (state, action) => {
 
       newState.recipes = [
         ...newState.recipes,
-        { id, title, ingredients, directions },
+        { id, title, ingredients, directions }
       ];
 
       return newState;
 
     case "EDIT_RECIPE":
-    const recipe = state.recipes.filter(
-      (recipe) => action.payload.title !== recipe.title
-    )
+      // const recipe = state.recipes.filter(
+      //   recipe => action.payload.title !== recipe.title
+      // );
+
+      console.log({ action });
+
+      const form = {
+        directions: action.directions,
+        ingredients: action.ingredients,
+        title: action.title
+      };
       console.log("actionaction", action);
-      newState = { ...state, recipe };
-     
-      
-  
-     newState.recipes =[
-       ...newState.recipes,
-       { title, ingredients, directions },
-     ];
+
+      // inceputul e bun, treb de vazut ce vine in action
+
+      newState = { ...state, form, isEditing: true };
+
+      // newState.recipes = [
+      //   ...newState.recipes,
+      //   { title, ingredients, directions }
+      // ];
 
       return newState;
 
     case "REMOVE_RECIPE":
-    const recipes = state.recipes.filter(
-      (recipe) => action.payload.id !== recipe.id
-    );
-    newState = { ...state, recipes };
+      const recipes = state.recipes.filter(
+        recipe => action.payload.id !== recipe.id
+      );
+      newState = { ...state, recipes };
       return newState;
 
     case "CANCEL":
-    newState = { ...state, addModalOpen: false, viewModalOpen : false  }
-    return newState;  
+      newState = { ...state, addModalOpen: false, viewModalOpen: false };
+      return newState;
 
     default:
       return state;
   }
 };
-
 
 const useRecipeReducer = () => {
   const [recipes, dispatch] = React.useReducer(recipeReducer, initialState);

@@ -10,8 +10,7 @@ const RecipeCard = ({
   handleOnEdit,
   handleOnDelete,
   directions,
-  ingredients,
-  published,
+  ingredients
 }) => {
   return (
     <Card
@@ -22,15 +21,13 @@ const RecipeCard = ({
         <Fragment>
           <span
             className="pointer"
-            onClick={() =>
-              handleOnEdit({ id, directions, ingredients, title, published })
-            }
+            onClick={() => handleOnEdit({ id, directions, ingredients, title })}
           >
             <EditOutlined
               style={{
                 fontSize: "1.25rem",
                 color: "#08c",
-                marginRight: "0.625rem",
+                marginRight: "0.625rem"
               }}
             />
           </span>
@@ -38,7 +35,7 @@ const RecipeCard = ({
             title="Are you sure delete this recipe?"
             onConfirm={() =>
               handleOnDelete({
-                id,
+                id
               })
             }
             okText="Yes"
@@ -54,7 +51,7 @@ const RecipeCard = ({
         </Fragment>
       }
       style={{
-        marginBottom: "50px",
+        marginBottom: "50px"
       }}
     >
       {content}

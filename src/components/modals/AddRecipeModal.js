@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, Modal, Form, Input } from "antd";
-import { statement } from "@babel/template";
 
 const AddRecipeForm = ({
   modalOpen,
@@ -12,9 +11,7 @@ const AddRecipeForm = ({
   onCreate,
   title,
   ingredients,
-  directions,
-  published,
-  ...props
+  directions
 }) => {
   const [form] = Form.useForm();
 
@@ -24,26 +21,26 @@ const AddRecipeForm = ({
       title="Create a new recipe"
       okText="Create"
       cancelText="Cancel"
-      onCancel={onCancel}
       onOk={() => {
         form
           .validateFields()
-          .then((values) => {
+          .then(values => {
             form.resetFields();
             onCreate(values);
           })
-          .catch((info) => {
+          .catch(info => {
             console.log("Validate Failed:", info);
           });
-
-          onCancel = {handleCloseModal}
-      }}     
+      }}
+      onCancel={handleCloseModal}
     >
       <Form
         form={form}
         layout="vertical"
         initialValues={{
-          modifier: "public",
+          title,
+          ingredients,
+          directions
         }}
       >
         <Form.Item
@@ -52,8 +49,8 @@ const AddRecipeForm = ({
           rules={[
             {
               required: true,
-              message: "Please input the title of recipe!",
-            },
+              message: "Please input the title of recipe!"
+            }
           ]}
         >
           <Input />
@@ -74,6 +71,9 @@ const AddRecipeModal = ({
   handleCloseModal,
   handleSubmit,
   modalOpen,
+  ingredients,
+  directions,
+  title
 }) => {
   return (
     <div>
@@ -84,6 +84,9 @@ const AddRecipeModal = ({
         modalOpen={modalOpen}
         onCreate={handleSubmit}
         handleCloseModal={handleCloseModal}
+        ingredients={ingredients}
+        directions={directions}
+        title={title}
       />
     </div>
   );

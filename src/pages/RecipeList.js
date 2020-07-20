@@ -11,18 +11,20 @@ function RecipeList() {
   const [recipeState, dispatch] = useRecipeReducer();
   const { addModalOpen, form, isEditing, recipes } = recipeState;
 
-  const handleChange = (event) => {};
+  console.log({ form });
+
+  const handleChange = event => {};
 
   const handleOpenAddModal = () =>
     dispatch({
       type: "OPEN_MODAL",
-      modalType: "add",
+      modalType: "add"
     });
 
-  const handleSubmit = (values) => {
+  const handleSubmit = values => {
     dispatch({
       type: "ADD_RECIPE",
-      payload: values,
+      payload: values
     });
   };
 
@@ -34,37 +36,36 @@ function RecipeList() {
       ingredients,
       title,
       modalOpen: true,
-      isEditing: true,
+      isEditing: true
     });
   };
 
   const handleOnDelete = ({ id }) => {
     dispatch({
       type: "REMOVE_RECIPE",
-      payload: { id },
+      payload: { id }
     });
   };
 
-  const onCreate = (values) => {
+  const onCreate = values => {
     dispatch({
       type: "ADD_RECIPE",
-      payload: values,
+      payload: values
     });
   };
 
   const handleCloseModal = () => {
     dispatch({
-      type: "CANCEL",
-    })
-     
-  }
+      type: "CANCEL"
+    });
+  };
 
   return (
     <>
       <Sidebar>
         {recipes?.length > 0 ? (
           <Row gutter={16}>
-            {recipes.map((recipe) => (
+            {recipes.map(recipe => (
               <Col span={6} key={recipe.id}>
                 <RecipeCard
                   title={recipe.title}
@@ -84,7 +85,7 @@ function RecipeList() {
                   }
                   handleOnEdit={handleOnEdit}
                   handleOnDelete={handleOnDelete}
-                  handleCloseModal ={handleCloseModal}
+                  handleCloseModal={handleCloseModal}
                   {...recipe}
                 />
               </Col>
@@ -92,7 +93,7 @@ function RecipeList() {
           </Row>
         ) : (
           <Empty />
-          )}
+        )}
         <AddRecipeModal
           modalOpen={addModalOpen || isEditing}
           handleOpenAddModal={handleOpenAddModal}
